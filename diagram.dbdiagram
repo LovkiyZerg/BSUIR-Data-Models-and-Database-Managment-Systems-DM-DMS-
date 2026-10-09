@@ -1,0 +1,76 @@
+{
+  "version": "3.0.0",
+  "darkMode": true,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "relationshipMode": "All",
+    "tablePositions": [
+      {
+        "name": "users",
+        "schemaName": "public",
+        "x": -469.12521048864437,
+        "y": -221.46151062163239
+      },
+      {
+        "name": "characters",
+        "schemaName": "public",
+        "x": 75.9613269845376,
+        "y": -203.9944471225099
+      },
+      {
+        "name": "matches",
+        "schemaName": "public",
+        "x": 1031.8481985801182,
+        "y": -210.2433494794272
+      },
+      {
+        "name": "match_partisipants",
+        "schemaName": "public",
+        "x": 554.6568951305676,
+        "y": -237.09872795801925
+      },
+      {
+        "name": "weapons",
+        "schemaName": "public",
+        "x": 426.97617024677345,
+        "y": 415.13129809776296
+      },
+      {
+        "name": "unit_holders",
+        "schemaName": "public",
+        "x": 394.71090021125667,
+        "y": -595.4105335540486
+      },
+      {
+        "name": "units",
+        "schemaName": "public",
+        "x": 742.1768533080765,
+        "y": -617.4480693501213
+      },
+      {
+        "name": "doctrines",
+        "schemaName": "public",
+        "x": 756.4690896362015,
+        "y": -443.4480693501213
+      },
+      {
+        "name": "guilds",
+        "schemaName": "public",
+        "x": 1018.7887273125068,
+        "y": 244.7541202798459
+      },
+      {
+        "name": "guild_memberships",
+        "schemaName": "public",
+        "x": 546.8969327042861,
+        "y": 134.02999364645143
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": []
+  },
+  "views": {}
+}

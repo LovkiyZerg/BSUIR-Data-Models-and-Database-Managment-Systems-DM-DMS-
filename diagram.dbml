@@ -1,0 +1,118 @@
+Enum user_permission_level {
+    admin
+    moderator
+    player
+}
+
+Enum side {
+    attack
+    defence
+}
+
+Enum unit_type {
+    infantry
+    archer
+    cavalry
+}
+
+Enum guild_position {
+    member
+    officer
+    guildmaster
+}
+
+Enum map_play_mode {
+    siege
+    conquer
+    PvE
+}
+
+Table users {
+    id integer [pk, increment]
+    username string [not null, unique]
+    password integer [not null]
+    permission user_permission_level
+}
+
+Table characters {
+    id int [pk, increment]
+    user_id integer [ref: > users.id]
+    name string [not null]
+    weapon_id integer [ref: > weapons.id]
+}
+
+Table weapons {
+    id int [pk, increment]
+    type string [not null]
+    damage float
+    penetration float
+}
+
+Table unit_holders {
+    id int [pk, increment]
+    character_id integer [ref: > characters.id]
+    unit_id integer [ref: > units.id]
+    doctrine_1_id integer [ref: > doctrines.id]
+    doctrine_2_id integer [ref: > doctrines.id]
+    doctrine_3_id integer [ref: > doctrines.id]
+    doctrine_4_id integer [ref: > doctrines.id]
+    doctrine_5_id integer [ref: > doctrines.id]
+}
+
+Table units {
+    id int [pk, increment]
+    name string
+    type unit_type
+}
+
+Table doctrines {
+    id int [pk, increment]
+    name string
+    rank integer [check: `rank >= 1 and rank <= 5`]
+}
+
+Table matches {
+    match_id int [pk, increment]
+    length timestamp 
+    map_id integer [ref: > maps.id]
+    winner side
+}
+
+Table match_partisipants {
+    id int [pk, increment]
+    character_id integer [ref: > characters.id]
+    match integer [ref: > matches.match_id]
+    kills integer
+    deaths integer
+    assists integer
+    score integer
+    win boolean
+}
+
+Table guilds {
+    id int [pk, increment]
+    name varchar(50) [not null]
+}
+
+Table guild_memberships {
+    id int [pk, increment]
+    character_id integer [ref: > characters.id]
+    guild_id integer [ref: > guilds.id]
+    position guild_position
+
+    indexes {
+        (guild_id, character_id) [unique]
+    }
+
+    Note: 'maximum 50 guild members'
+}
+
+Table maps {
+    id int [pk, increment]
+    name string
+    play_mode map_play_mode
+    is_active boolean [default: 0]
+}
+
+
+
