@@ -10,8 +10,8 @@ Enum side {
 }
 
 Enum unit_type {
-    infantry
-    archer
+    melee_infantry
+    ranged_infantry
     cavalry
 }
 
@@ -39,6 +39,8 @@ Table characters {
     user_id integer [ref: > users.id]
     name string [not null]
     weapon_id integer [ref: > weapons.id]
+    silver_amount integer
+    gold_amount integer
 }
 
 Table weapons {
@@ -63,6 +65,21 @@ Table units {
     id int [pk, increment]
     name string
     type unit_type
+    health float
+    models_number integer
+    leadership integer
+    speed float
+    range float
+    ammo integer
+    base_blunt_damage float
+    base_piercing_damage float
+    base_slashing_damage float
+    base_blunt_penetretion float
+    base_piercing_penetreation float
+    base_slashing_penetrarion float
+    base_blunt_defence float
+    base_piercing_defence float
+    base_slashing_defence float
 }
 
 Table doctrines {
@@ -112,6 +129,18 @@ Table maps {
     name string
     play_mode map_play_mode
     is_active boolean [default: 0]
+}
+
+Table units_abilities_list {
+    id int [pk, increment]
+    unit_id integer [ref: > units.id]
+    ability_id integer [ref: > abilities.id]
+}
+
+Table abilities {
+    id int [pk, increment]
+    name varchar(30)
+    description string
 }
 
 
