@@ -65,6 +65,7 @@ Table units {
     id int [pk, increment]
     name string
     type unit_type
+    tier integer [check: `tier >= 1 and tier <= 5`]
     health float
     models_number integer
     leadership integer
